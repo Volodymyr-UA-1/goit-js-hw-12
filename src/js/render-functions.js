@@ -38,6 +38,7 @@ gallery.innerHTML = "";
 export function showLoader() {
   const loader = document.querySelector('.loader');
   loader.classList.remove('is-hidden');
+  hideLoadMoreButton();
 }
 
 export function hideLoader() {

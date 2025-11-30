@@ -94,37 +94,7 @@ background-color: #6c8cff;
   color: #333; /* світлий колір для значення */
   font-weight: normal;
 }
-.loader {
-  text-align: center;
-  margin: 0px auto;
-  font-size: 16px;
-  color: #333;
-  width: 256px;
-  height: 24px;
-  overflow: hidden;
-  position: relative;
-  background-color: #fff;
-}
-.loader:active {
-  height: 100%;
-  width: 0%;
-  background-color: #4e75ff;
-  position: absolute;
-  top: 0;
-  left: 0;
-  animation: fillLoader 2s linear forwards;
-}
-.loader.is-hidden{
-display: none;
-}
-@keyframes fillLoader {
-  0% {
-    width: 0%;
-  }
-  100% {
-    width: 100%;
-  }
-}
+
 .js-btn-load{
 display: flex;
 align-items: center;
@@ -148,5 +118,43 @@ background-color: #6c8cff;
 .js-btn-load.is-hidden{
 display: none;
 }
+.loader {
+  text-align: center;
+  margin: 0px auto;
+  font-size: 16px;
+  color: #333;
+  width: 256px;
+  height: 24px;
+  overflow: hidden;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #4eff60;
+  border-radius: 4px;
+}
+.loader::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background-color: #4eff60;
+  z-index: 1;
+  animation: fillLoader 3s linear forwards;
+}
+.loader span {
+  position: relative;
+  z-index: 2;
+  color: #000;
+}
+.loader.is-hidden{
+display: none;
+}
+@keyframes fillLoader {
+  0% { width: 0%; }
+  50% { width: 100%; }
+  100% { width: 0%; }
+}
+
 
 
