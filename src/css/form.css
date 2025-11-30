@@ -42,7 +42,7 @@ cursor: pointer;
 }
 
 button[type="submit"]:hover {
-background-color: #6c8cff;; 
+background-color: #6c8cff; 
 }
 
 .gallery {
@@ -90,24 +90,63 @@ background-color: #6c8cff;;
   color: #000;        
   font-weight: bold;
 }
-.info p .value {
+.info p span.value {
   color: #333; /* світлий колір для значення */
   font-weight: normal;
 }
 .loader {
-width: 48px;
-height: 48px;
-border: 5px solid #FFF;
-border-bottom-color: #FF3D00;
-border-radius: 50%;
-box-sizing: border-box;
-animation: brandRotation 0.8s linear infinite;
+  text-align: center;
+  margin: 0px auto;
+  font-size: 16px;
+  color: #333;
+  width: 256px;
+  height: 24px;
+  overflow: hidden;
+  position: relative;
+  background-color: #fff;
+}
+.loader:active {
+  height: 100%;
+  width: 0%;
+  background-color: #4e75ff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: fillLoader 2s linear forwards;
 }
 .loader.is-hidden{
 display: none;
 }
-@keyframes brandRotation{
-  0% { transform: rotate(0deg)}
-  100% { transform: rotate(360deg)}
+@keyframes fillLoader {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }
+.js-btn-load{
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: row;
+border-radius: 8px;
+border: none;
+padding: 8px 16px;
+width: 125px;
+background-color: #4e75ff;
+font-weight: 500;
+font-size: 16px;
+letter-spacing: 0.04em;
+color: #fff;
+cursor: pointer;
+margin:0 auto;
+}
+.js-btn-load:hover{
+background-color: #6c8cff;
+}
+.js-btn-load.is-hidden{
+display: none;
+}
+
 

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export function getImagesByQuery(query){
+export async function getImagesByQuery(query, page){
 const baseURL = 'https://pixabay.com';
 const endPoint ='/api/';
 const params = new URLSearchParams({
@@ -9,7 +9,11 @@ q: query,
 image_type: 'photo',
 orientation: 'horizontal',
 safesearch: 'true',
+per_page: 15,
+page: page,
 });
+
 const url = `${baseURL}${endPoint}?${params}`;
-return axios.get(url).then(res => res.data);
+const res = await axios.get(url);
+return res.data;
 }
